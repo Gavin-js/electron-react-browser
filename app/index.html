@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    <link rel="stylesheet" href="./css/browser.css">
+    <link rel="stylesheet" href="./css/browser-tabs.css">
+    <link rel="stylesheet" href="./css/browser-navbar.css">
+    <link rel="stylesheet" href="./css/browser-page.css">
+  </head>
+  <body>
+    <div id="browser-chrome"></div>
+    <script src="./app.js" data-container="#browser-chrome"></script>
+    <script>
+      if (process.env.BROWSER_SYNC_CLIENT_URL) {
+        const current = document.currentScript;
+        const script = document.createElement('script');
+        script.src = process.env.BROWSER_SYNC_CLIENT_URL;
+        script.async = true;
+        current.parentNode.insertBefore(script, current);
+      }
+    </script>
+  </body>
+</html>
